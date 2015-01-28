@@ -29,9 +29,9 @@ ENV LANG       en_US.UTF-8
 ENV LC_ALL     en_US.UTF-8
 ENV LANGUAGE   en_US:en
 ENV JAVA_HOME /usr/lib/jvm/java-7-oracle
-ENV SOLR_VERSION 4.10.2
+ENV SOLR_VERSION 3.3.0
 ENV SOLR solr-$SOLR_VERSION
-ENV SOLR_DOWNLOAD http://apache.cs.utah.edu/lucene/solr/$SOLR_VERSION/$SOLR.tgz
+ENV SOLR_DOWNLOAD http://archive.apache.org/dist/lucene/solr/$SOLR_VERSION/apache-$SOLR.tgz
 
 RUN \
   apt-get update && \
