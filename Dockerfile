@@ -1,6 +1,6 @@
 FROM debian:wheezy
 MAINTAINER Dmitry Mozzherin
-
+ENV LAST_FULL_REBUILD 2015-03-05
 RUN \
     export DEBIAN_FRONTEND=noninteractive && \
     apt-get update && \
@@ -41,6 +41,8 @@ RUN \
   tar -C /opt --extract --file /opt/$SOLR.tgz && \
   rm /opt/$SOLR.tgz && \
   ln -s /opt/$SOLR /opt/solr
+
+VOLUME /opt/cores/solr
 
 EXPOSE 8983
 CMD ["/bin/bash", "-c", "cd /opt/solr/example && java -Dsolr.solr.home=/opt/cores/solr -jar start.jar"] 
