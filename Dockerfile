@@ -1,6 +1,6 @@
 FROM debian:wheezy
 MAINTAINER Dmitry Mozzherin
-ENV LAST_FULL_REBUILD 2015-03-05
+ENV LAST_FULL_REBUILD 2015-03-17
 RUN \
     export DEBIAN_FRONTEND=noninteractive && \
     apt-get update && \
