@@ -36,7 +36,7 @@ ENV SOLR_DOWNLOAD http://archive.apache.org/dist/lucene/solr/$SOLR_VERSION/$SOLR
 RUN \
   apt-get update && \
   apt-get -y install lsof curl procps && \
-  mkdir -p /opt/cores/solr && \
+  mkdir -p /opt/solr && \
   wget -nv --output-document=/opt/$SOLR.tgz $SOLR_DOWNLOAD && \
   tar -C /opt --extract --file /opt/$SOLR.tgz && \
   rm /opt/$SOLR.tgz && \
@@ -48,7 +48,7 @@ RUN \
   apt-get -y autoremove && \
   rm -rf eol
 
-VOLUME /opt/cores/solr
+VOLUME /opt/solr
 
 EXPOSE 8983
-CMD ["/bin/bash", "-c", "cd /opt/solr/example && java -Dsolr.solr.home=/opt/cores/solr -jar start.jar"] 
+CMD ["/bin/bash", "-c", "cd /opt/solr/example && java -Dsolr.solr.home=/opt/solr -jar start.jar"] 
