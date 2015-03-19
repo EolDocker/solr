@@ -40,7 +40,7 @@ RUN \
   wget -nv --output-document=/opt/$SOLR.tgz $SOLR_DOWNLOAD && \
   tar -C /opt --extract --file /opt/$SOLR.tgz && \
   rm /opt/$SOLR.tgz && \
-  ln -s /opt/$SOLR /opt/solr && \
+  mv /opt/$SOLR/* /opt/solr && \
   git clone https://github.com/EOL/eol.git && \
   mv eol/solr/solr/solr.xml /opt/solr &&\
   mv eol/solr/solr/cores /opt/solr && \
