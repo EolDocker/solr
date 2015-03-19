@@ -9,7 +9,7 @@ RUN \
     echo "deb-src http://ppa.launchpad.net/webupd8team/java/ubuntu precise main" | tee -a /etc/apt/sources.list.d/webupd8team-java.list && \
     apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys EEA14886 && \
     apt-get update && \
-    apt-get -y install locales && \
+    apt-get -y install locales git && \
     sed -i.bak -e 's/# en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/' /etc/locale.gen && \
     locale-gen && \
     update-locale LC_ALL= "en_US.UTF-8" && \
@@ -40,7 +40,13 @@ RUN \
   wget -nv --output-document=/opt/$SOLR.tgz $SOLR_DOWNLOAD && \
   tar -C /opt --extract --file /opt/$SOLR.tgz && \
   rm /opt/$SOLR.tgz && \
-  ln -s /opt/$SOLR /opt/solr
+  ln -s /opt/$SOLR /opt/solr && \
+  git clone https://github.com/EOL/eol.git && \
+  mv eol/solr/solr/solr.xml /opt/solr &&\
+  mv eol/solr/solr/cores /opt/solr && \
+  apt-get -y purge git && \
+  apt-get -y autoremove && \
+  rm -rf eol
 
 VOLUME /opt/cores/solr
 
