@@ -42,8 +42,8 @@ RUN \
   rm /opt/$SOLR.tgz && \
   mv /opt/$SOLR/* /opt/solr && \
   git clone https://github.com/EOL/eol.git && \
-  cd eol && git checkout docker && cd .. \
-  mv eol/solr/solr/solr.xml /opt/solr &&\
+  cd eol && git checkout docker && cd .. && \
+  mv eol/solr/solr/solr.xml /opt/solr && \
   mv eol/solr/solr/cores /opt/solr && \
   apt-get -y purge git && \
   apt-get -y autoremove && \
