@@ -30,8 +30,7 @@ ENV LC_ALL     en_US.UTF-8
 ENV LANGUAGE   en_US:en
 ENV JAVA_HOME /usr/lib/jvm/java-7-oracle
 ENV SOLR_VERSION 3.3.0
-ENV SOLR apache-solr-$SOLR_VERSION
-ENV SOLR_DOWNLOAD http://archive.apache.org/dist/lucene/solr/$SOLR_VERSION/$SOLR.tgz
+ENV SOLR apache-solr-$SOLR_VERSION ENV SOLR_DOWNLOAD http://archive.apache.org/dist/lucene/solr/$SOLR_VERSION/$SOLR.tgz
 
 RUN \
   apt-get update && \
@@ -54,4 +53,4 @@ RUN \
 VOLUME /opt/solr
 
 EXPOSE 8983
-CMD ["/bin/bash", "-c", "cd /opt/solr/example && java -Dsolr.solr.home=/opt/solr -jar start.jar"] 
+CMD ["/bin/bash", "-c", "cd /opt/solr/example && java -Dsolr.solr.home=/opt/solr -jar start.jar > /var/log/solr/solr.log 2>&1"] 
