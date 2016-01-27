@@ -54,4 +54,4 @@ RUN \
 VOLUME /opt/solr
 
 EXPOSE 8983
-CMD ["/bin/bash", "-c", "chmod a+rx / ; cd /opt/solr/example && java -Dsolr.solr.home=/opt/solr -jar start.jar > /var/log/solr/solr.log 2>&1"] 
+CMD ["/bin/bash", "-c", "chmod a+rx / ; cd /opt/solr/example && java -Xmx64g -Dsolr.solr.home=/opt/solr -jar start.jar > /dev/null 2>&1"] 
