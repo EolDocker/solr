@@ -1,5 +1,5 @@
 FROM debian:wheezy
-MAINTAINER Dmitry Mozzherin
+MAINTAINER Jeremy Rice
 ENV LAST_FULL_REBUILD 2015-03-17
 RUN \
     export DEBIAN_FRONTEND=noninteractive && \
